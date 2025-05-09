@@ -29,3 +29,6 @@ Content-Type: application/json
 {
     "year":"1984"
 }
+
+### Eliminar una Pelicula
+DELETE http://localhost:8000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
