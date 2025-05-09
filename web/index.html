@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" >
+        fetch('http://localhost:8000/movies')
+        .then(res=>res.json())
+        .then(movies=>{
+            const html = movies.map(movie=>{
+                return`
+                <article data-id="${movie.id}">
+                <h2>${movie.title}</h2>
+                <img src="${movie.poster}"></img>
+                <h4>${movie.genre}</h4>
+                </article>    
+                `
+            }).join('')
+            document.querySelector('main').innerHTML=html
+        })
+    </script>
+    <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: system-ui, sans-serif;
+    background-color: #f9fafb;
+    color: #111827;
+    padding: 2rem;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  article {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+</style>
+    <title>Document</title>
+</head>
+<body>
+    <main></main>
+</body>
+</html>

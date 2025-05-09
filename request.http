@@ -1,0 +1,31 @@
+### recuperar peliculas 
+GET http://localhost:8000/movies
+
+### recuperar una pelicula por id
+GET http://localhost:8000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+
+### recuperar todas las peliculas por genero
+GET http://localhost:8000/movies?genre=action
+
+### crear una pelicula
+
+POST  http://localhost:8000/movies
+Content-Type: application/json
+
+{
+  "title": "El agente Topo",
+  "year": 2020,
+  "director": "Maite Alberdi",
+  "duration": 142,
+  "poster": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIADgAIQMBIgACEQEDEQH/xAAaAAADAAMBAAAAAAAAAAAAAAAABgcDBAUB/8QANBAAAQMDAgMGBQEJAAAAAAAAAQIDBAAFERIhBjFREyIyQXGBFCNhkdHhJDNTcoKSobHB/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAEDAv/EABsRAAMBAAMBAAAAAAAAAAAAAAABAhESITED/9oADAMBAAIRAxEAPwCXy7y+zeriJUqc42H1hCW5Kk47/r0z+K2bM3eL9PWm3LnqYCEgkylJCFYGTqJPnnbetdq0G58RT9akoYTLcClLOlPiPM9B5+w5kVUrGiPwhEEOLGdkIxnte733Fdeg5dcVxVYujuJ5PGTq+sXexyY6pypyY/aYWpExawvltnb6/npxZV8kuNN/DyZrTgUdf7SsgjAxzPr96p98D/ECFwp8UNoedS3qZO7as5B3G/L396mfEtidskvslZKPDqPXHXoeY9x5Gk1vouOL6Kn8Q/8AxnP7zRWKiuzgXrM3ALl4XJLJKHlrUDgk/NVtj+kc67rN8N1DkFpplrs42GdazpGDjUeQyMjFTyRc/hrrcY7oBZU/IAVjJQpR2PsQPua27FJalT4zMhQ7Jx1LbnewCknB3rJw28NotShv4tN4t8W3PsXJOG1h1QZaKUtDTjJUdleI/elfiie5cbbrlEOOhIw5owdlDGcfzKpm4p4iht2xVtTpROc0tE93SkAjJURgDI6/rU1m3Fb7amE7M5B+pxnH+zUhV4y/Vz6is0UUVsYE2udjuUmc9LYiqWzJuTkZkgjvOaicY/7y2PSs1r4ZnqmyQrSpqFgyTHkoJQSSAOfPUnfb6+YNZn+JpUC5S4qQhMdExSxpB1JUlZORk4yfP1psuELtk3C3C4tKZLnw4C2SAVBBfKiQrITk6fPr5YICdeOHLt8Uy48lWiU0h5Dr76CFE6QdwceJXLngisTnB14bMwLbYzCKRIw+k6CrkNjv7U3Sbe2nFrRf0qSXRIWw43lSUpbDmUYVtk93B9fVc4quEmFcrnCU5HlMzi084rSpJ8IKRgK2I96AfM0UUUBN3G4Tl7uKJCStZkrwCk4HePRQ+lbhRCLjmpaypxWhY7/zDywfm70UVMB4GreV9qtwlxJ/erKtW3kD2tc67pgdnqb1B5Xe1aVEq9SVkY/zRRTC6U6iiiqQ/9k=",
+  "genre": ["Drama"],
+  "rate": 9.3
+}
+### Actualizar una pelicula
+
+PATCH http://localhost:8000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+    "year":"1984"
+}
