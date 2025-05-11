@@ -5,7 +5,7 @@ export class MovieModel {
     {
         if(genre)
         {
-            return movies.filter(movie=>movie.genre.some(gen=gen.toLowerCase()===genre.toLowerCase()))
+            return movies.filter(movie=>movie.genre.some(gen=>gen.toLowerCase()===genre.toLowerCase()))
         }
         return movies;
     }
@@ -23,19 +23,20 @@ export class MovieModel {
         movies.push(newMovie)
     }
     static async delete ({id}){
-        const movieIndex=movie.findIndex(movie=>movie.id===id)
+        const movieIndex=movies.findIndex(movie=>movie.id===id)
         if(movieIndex===-1) return false
-        movie.splice(movieIndex,1);
+        movies.splice(movieIndex,1);
         return true
     }
     static async update ({input, id})
     {
         const movieIndex=movies.findIndex(movie=> movie.id===id)
         if(movieIndex===-1) return false
-        const updateMovie={
+
+        movies[movieIndex]={
             ...movies[movieIndex],
             ...input,
         }  
-        return updateMovie  
+        return movies[movieIndex]  
     }
 }

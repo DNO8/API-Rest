@@ -20,16 +20,20 @@ export class MovieController
             if(!result.success){
                 return res.status(400).json({error: JSON.parse(result.error.message)})
             }
-           const newMovie= await MovieModel.create({post:result.data}) 
+           const newMovie= await MovieModel.create({input:result.data}) 
             res.status(201).json(newMovie)
     }
     static async update(req,res){
     const {id}= req.params
     const result= validatePartialMovie(req.body)
-    if(result.success){
+    if(!result.success){
         return res.status(400).json({error:JSON.parse(result.error.message)})
     }
-    const updatedMovie= await MovieModel.update({id,input:result.data})
+    const updatedMovie= await MovieModel.update({input:result.data,id})
+    if (updatedMovie===false)
+    {
+         return res.status(404).json({message:'Movie not found'})
+    }
     return res.json(updatedMovie)
     }
     static async delete(req,res){
