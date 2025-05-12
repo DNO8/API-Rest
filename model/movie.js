@@ -33,10 +33,10 @@ export class MovieModel {
         const movieIndex=movies.findIndex(movie=> movie.id===id)
         if(movieIndex===-1) return false
 
-        movies[movieIndex]={
+        const updatedMovie={
             ...movies[movieIndex],
             ...input,
         }  
-        return movies[movieIndex]  
+        return updatedMovie
     }
 }
