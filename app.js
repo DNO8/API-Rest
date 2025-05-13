@@ -7,7 +7,7 @@ const PORT=process.env.PORT ?? 8000;
 const app= express();
 const limiter=rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 60, // máximo de 10 peticiones por IP
+    max: 60, // máximo de 60 peticiones por IP
     standardHeaders: true, // muestra cabeceras estándar
     legacyHeaders: false, // desactiva cabeceras obsoletas
     message: {
